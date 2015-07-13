@@ -20,7 +20,7 @@
 
 	<div class="campaign-create-form-container">
 			
-		<form method="POST">
+		<form method="POST" action="{{ url() }}/store">
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 			<!-- form content -->
@@ -100,8 +100,14 @@
 						</button>
 					</div>
 			
-			
-				
+					<div class="row col-md-10">&nbsp;</div>
+					<!-- submit for button -->
+
+					<div class="row">
+						<div class="col-md-10">
+							<button type="submit" class="btn btn-sm btn-success btn-block"><i class="glyphicon glyphicon-ok"></i> Save Campaign</button>
+						</div>
+					</div>
 
 			<!-- // -->
 
