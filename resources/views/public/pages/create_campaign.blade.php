@@ -40,7 +40,7 @@
 					</div> 
 
 					<div class="row"> 
-						<div class="form-group col-md-5">
+						<div class="form-group col-md-7">
 							<label>Campaign Begins:</label>
 							<div class="input-group">
 								<input type="text" name="campaign_start_date" value="" class="form-control" />
@@ -48,7 +48,7 @@
 							</div>
 						</div>
 
-						<div class="form-group col-md-5">
+						<div class="form-group col-md-3">
 							<!-- <label>Start Time:</label> -->
 							<input type="text" name="campaign_start_time" value="" class="form-control no-label" />
 						</div>
@@ -56,17 +56,43 @@
 
 
 					<div class="row">
-						<div class="form-group col-md-5">
+						<div class="form-group col-md-7">
 							<label>Campaign Ends:</label>
-							<input type="text" name="campaign_end_date" value="" class="form-control" />
+							<div class="input-group">
+								<input type="text" name="campaign_end_date" value="" class="form-control" />
+								<div class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></div>
+							</div>
 						</div>
 
-						<div class="form-group col-md-5">
+						<div class="form-group col-md-3">
 							<!-- <label>Start Time:</label> -->
 							<input type="text" name="campaign_end_time" value="" class="form-control no-label" />
 						</div>
 					</div>
+
+					<div class="row col-md-10">	
+						<label>Accept Duplicate Entries?:</label>
+					</div>
 					
+					<div class="col-md-10">
+						<label class="radio-inline">
+						  	<input type="radio" name="duplicateEntryYes" id="inlineRadio1" value="option1" class="pull-right"> Yes 
+						</label>
+						<label class="radio-inline">
+						  	<input type="radio" name="duplicateEntryNo" id="inlineRadio2" value="option1" class="pull-left"> No
+						</label>
+					</div>
+			
+					<div class="row col-md-10">&nbsp;</div>
+
+					<div class="row" id="keywordsRow"> 
+
+						<div class="form-group col-md-10">
+							<label>Keyword #1:</label>
+							<input type="text" name="campaign_keyword_1" value="" class="form-control" />
+						</div>
+
+					</div>
 			
 			
 				
