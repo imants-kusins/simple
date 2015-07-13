@@ -34,7 +34,8 @@ class CampaignController extends Controller {
 	 */
 	public function store()
 	{
-		//
+		// TODO create Campaign model and 
+		dd(\Request::all());
 	}
 
 	/**

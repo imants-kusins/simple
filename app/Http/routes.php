@@ -8,6 +8,8 @@ Route::get('logout', 'MainController@logout');
 Route::get('create', 'CampaignController@create');
 Route::get('campaigns', 'CampaignController@index');
 
+Route::post('save-campaign', 'CampaignController@store');
+
 
 
 // Route::get('/', 'WelcomeController@index');
