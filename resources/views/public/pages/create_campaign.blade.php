@@ -25,30 +25,50 @@
 
 			<!-- form content -->
 
-		<!-- 	<div class="row"> -->
+					<div class="row"> 
 
-					<div class="form-group col-md-10">
-						<label>Campaign Name:</label>
-						<input type="text" name="campaign_name" value="" class="form-control" />
+						<div class="form-group col-md-10">
+							<label>Campaign Name:</label>
+							<input type="text" name="campaign_name" value="" class="form-control" />
+						</div>
+
+					
+						<div class="form-group col-md-10">
+							<label>Inbox Phone Number:</label>
+							<input type="text" name="campaign_phone_number" value="" class="form-control" />
+						</div>
+					</div> 
+
+					<div class="row"> 
+						<div class="form-group col-md-5">
+							<label>Campaign Begins:</label>
+							<div class="input-group">
+								<input type="text" name="campaign_start_date" value="" class="form-control" />
+								<div class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></div>
+							</div>
+						</div>
+
+						<div class="form-group col-md-5">
+							<!-- <label>Start Time:</label> -->
+							<input type="text" name="campaign_start_time" value="" class="form-control no-label" />
+						</div>
 					</div>
 
-				
-					<div class="form-group col-md-10">
-						<label>Inbox Phone Number:</label>
-						<input type="text" name="campaign_phone_number" value="" class="form-control" />
-					</div>
 
+					<div class="row">
+						<div class="form-group col-md-5">
+							<label>Campaign Ends:</label>
+							<input type="text" name="campaign_end_date" value="" class="form-control" />
+						</div>
 
-					<div class="form-group col-md-5">
-						<label>Start Time:</label>
-						<input type="text" name="campaign_phone_number" value="" class="form-control" />
+						<div class="form-group col-md-5">
+							<!-- <label>Start Time:</label> -->
+							<input type="text" name="campaign_end_time" value="" class="form-control no-label" />
+						</div>
 					</div>
-					<div class="form-group col-md-5">
-						<label>End Time:</label>
-						<input type="text" name="campaign_phone_number" value="" class="form-control" />
-					</div>
+					
 			
-			<!-- </div> -->
+			
 				
 
 			<!-- // -->
