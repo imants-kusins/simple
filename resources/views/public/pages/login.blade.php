@@ -19,7 +19,7 @@
 	      <br>
 	      	<div class="input-group">
 	      		<div class="input-group-addon"><i class="glyphicon glyphicon-user"></i></div>
-				<input type="text" class="form-control" name="username" placeholder="Username" />
+				<input type="text" class="form-control" name="email" placeholder="E-Mail" />
 			</div>
 			<br>
 			<div class="input-group">

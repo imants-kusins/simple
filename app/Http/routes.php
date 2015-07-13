@@ -14,6 +14,9 @@ Route::get('logout', 'MainController@logout');
 Route::get('create', 'CampaignController@create');
 Route::get('campaigns', 'CampaignController@index');
 
+
+Route::get('create-new-user', 'MainController@createUser');
+
 Route::post('save-campaign', 'CampaignController@store');
 
 
