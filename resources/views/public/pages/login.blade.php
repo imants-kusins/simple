@@ -19,13 +19,13 @@
 	      <h2 class="form-signin-heading text-center"><i class="glyphicon glyphicon-lock"></i> Sign In</h2>
 	      <br>
 	      	<div class="input-group">
-	      		<div class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></div>
-				<input type="text" class="form-control" name="username" placeholder="Email Address" required="" autofocus="" />
+	      		<div class="input-group-addon"><i class="glyphicon glyphicon-user"></i></div>
+				<input type="text" class="form-control" name="username" placeholder="Username" />
 			</div>
 			<br>
 			<div class="input-group">
-				<div class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></div>
-				<input type="text" class="form-control" name="password" placeholder="Email Address" required="" autofocus="" />
+				<div class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></div>
+				<input type="text" class="form-control" name="password" placeholder="Password" />
 			</div>
 	      	<br>
 	      <button class="btn btn-sm btn-success btn-block" type="submit">SIGN IN</button>   
