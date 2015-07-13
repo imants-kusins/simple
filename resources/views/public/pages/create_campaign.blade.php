@@ -87,7 +87,7 @@
 
 					<div class="row" id="keywordsRow"> 
 
-						<div class="form-group col-md-10">
+						<div class="form-group col-md-8" id="keyword_container_1">
 							<label>Keyword #1:</label>
 							<input type="text" name="campaign_keyword_1" value="" class="form-control" />
 						</div>
