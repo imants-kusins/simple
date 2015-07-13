@@ -14,7 +14,7 @@ class MainController extends Controller {
 	 */
 	public function index()
 	{
-		return view('public.pages.index');
+		return view('public.pages.login');
 	}
 
 	/**

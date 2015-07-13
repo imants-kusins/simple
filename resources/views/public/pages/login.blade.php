@@ -1,24 +1,32 @@
-@extends('master')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>theTimes Camapigns</title>
 
-@section('content')
+	<link rel="stylesheet" href="{{ url() }}/css/bootstrap.min.css">
+	<link rel="stylesheet" href="{{ url() }}/css/custom.min.css">
+	<!-- <link rel="stylesheet" href="{{ url() }}/bower_components/bootstrap-social/bootstrap-social.css"> -->
+</head>
+<body>
 
-	<div class="container">
+
+
+
+	
+	<div id="page-content-wrapper">
 		
-		<div class="row col-md-12">
-				
-				<!-- top bit -->
-
-				<h2 class="pull-left">Campaign Title</h2>
-
-				<div class="top-btn-container pull-right">
-					<a class="btn btn-sm btn-primary" href=""><i class="glyphicon glyphicon-plus"></i> Add Campaign</a>
-					<a class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-log-out"></i> Logout</a>
-				</div>
-
-		</div>
-
-		<hr />
+	login tihng
 
 	</div>
 
-@stop
+	
+
+
+	
+	<script type="text/javascript" src="{{ url() }}/js/jquery.min.js"></script>
+	<script type="text/javascript" src="{{ url() }}/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="{{ url() }}/js/custom.min.js"></script>
+	
+</body>
+</html>
