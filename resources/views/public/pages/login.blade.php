@@ -10,9 +10,6 @@
 </head>
 <body>
 
-
-
-
 	
 	 <div class="wrapper">
 	    <form class="form-signin" method="POST" action="{{ url() }}/authorize">   
@@ -31,9 +28,6 @@
 	      <button class="btn btn-sm btn-success btn-block" type="submit">SIGN IN</button>   
 	    </form>
   	</div>
-
-	
-
 
 	
 	<script type="text/javascript" src="{{ url() }}/js/jquery.min.js"></script>
