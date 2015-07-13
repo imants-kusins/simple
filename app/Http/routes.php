@@ -19,7 +19,7 @@ Route::post('save-campaign', 'CampaignController@store');
 // Route::get('delete-visitor/{id}', 'VisitorController@delete');
 // Route::get('download-csv', 'VisitorController@downloadCsv');
 
-// Route::controllers([
-// 	'auth' => 'Auth\AuthController',
-// 	'password' => 'Auth\PasswordController',
-// ]);
+Route::controllers([
+	'auth' => 'Auth\AuthController',
+	//'password' => 'Auth\PasswordController',
+]);
