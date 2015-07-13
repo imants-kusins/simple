@@ -1,6 +1,12 @@
 <?php
 
 
+Route::controllers([
+	'auth' => 'Auth\AuthController',
+	'password' => 'Auth\PasswordController',
+]);
+
+
 Route::get('/', 'MainController@index');
 Route::get('logout', 'MainController@logout');
 
@@ -19,7 +25,4 @@ Route::post('save-campaign', 'CampaignController@store');
 // Route::get('delete-visitor/{id}', 'VisitorController@delete');
 // Route::get('download-csv', 'VisitorController@downloadCsv');
 
-Route::controllers([
-	'auth' => 'Auth\AuthController',
-	//'password' => 'Auth\PasswordController',
-]);
+

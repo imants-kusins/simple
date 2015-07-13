@@ -10,9 +10,11 @@
 </head>
 <body>
 
+
 	
 	 <div class="wrapper">
-	    <form class="form-signin" method="POST" action="{{ url() }}/authorize">   
+	    <form class="form-signin" method="POST" action="{{ url('/auth/login') }}">
+	    <input type="hidden" name="_token" value="{{ csrf_token() }}">
 	      <h2 class="form-signin-heading text-center"><i class="glyphicon glyphicon-lock"></i> Sign In</h2>
 	      <br>
 	      	<div class="input-group">
@@ -22,11 +24,12 @@
 			<br>
 			<div class="input-group">
 				<div class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></div>
-				<input type="text" class="form-control" name="password" placeholder="Password" />
+				<input type="password" class="form-control" name="password" placeholder="Password" />
 			</div>
 	      	<br>
 	      <button class="btn btn-sm btn-success btn-block" type="submit">SIGN IN</button>   
 	    </form>
+}
   	</div>
 
 	
