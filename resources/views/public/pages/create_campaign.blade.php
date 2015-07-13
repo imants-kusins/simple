@@ -25,21 +25,30 @@
 
 			<!-- form content -->
 
-				<div class="row col-md-8">
-					<div class="form-group">
+		<!-- 	<div class="row"> -->
+
+					<div class="form-group col-md-10">
 						<label>Campaign Name:</label>
 						<input type="text" name="campaign_name" value="" class="form-control" />
 					</div>
-				</div>
 
 				
-				<div class="row col-md-8">
-					<div class="form-group">
+					<div class="form-group col-md-10">
 						<label>Inbox Phone Number:</label>
 						<input type="text" name="campaign_phone_number" value="" class="form-control" />
 					</div>
-				</div>
 
+
+					<div class="form-group col-md-5">
+						<label>Start Time:</label>
+						<input type="text" name="campaign_phone_number" value="" class="form-control" />
+					</div>
+					<div class="form-group col-md-5">
+						<label>End Time:</label>
+						<input type="text" name="campaign_phone_number" value="" class="form-control" />
+					</div>
+			
+			<!-- </div> -->
 				
 
 			<!-- // -->
