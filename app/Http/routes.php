@@ -10,9 +10,11 @@ Route::controllers([
 Route::get('/', 'MainController@index');
 Route::get('logout', 'MainController@logout');
 
+Route::get('create', array('middleware' => 'auth', 'uses' => 'CampaignController@create'));
+Route::get('campaigns', array('middleware' => 'auth', 'uses' => 'CampaignController@index'));
 
-Route::get('create', 'CampaignController@create');
-Route::get('campaigns', 'CampaignController@index');
+//Route::get('create', 'CampaignController@create');
+//Route::get('campaigns', 'CampaignController@index');
 
 
 Route::get('create-new-user', 'MainController@createUser');
