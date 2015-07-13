@@ -93,6 +93,12 @@
 						</div>
 
 					</div>
+
+					<div class="row col-md-10">
+						<button id="addKeywordBtn" type="button" class="btn btn-sm btn-primary pull-left">
+							<i class="glyphicon glyphicon-plus"></i> Add Keyword
+						</button>
+					</div>
 			
 			
 				
