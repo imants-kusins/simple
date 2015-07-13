@@ -18,7 +18,7 @@
 
 		<div class="row col-md-12">
 			
-		<form>
+		<form method="POST">
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
 		</form>
 
