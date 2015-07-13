@@ -10,11 +10,7 @@
 
 				<h2 class="pull-left">Create New Campaign</h2>
 
-				<div class="top-btn-container pull-right">
-				@if (Auth::user())
-					<a class="btn btn-sm btn-danger" href="{{ url('/auth/logout') }}"><i class="glyphicon glyphicon-log-out"></i> Logout</a>
-				@endif
-				</div>
+				@include('public.partials.menuButtons')
 
 		</div>
 
