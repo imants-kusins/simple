@@ -16,7 +16,12 @@ class CreateCampaignsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('campaign_name');
-			$table->string('phone_number');
+			$table->string('campaign_phone_number');
+			$table->integer('campaign_inbox_id');
+			$table->date('campaign_start_date');
+			$table->date('campaign_end_date');
+			$table->boolean('duplicate');
+
 			$table->timestamps();
 		});
 	}

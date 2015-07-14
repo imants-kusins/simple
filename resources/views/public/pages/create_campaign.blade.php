@@ -39,6 +39,12 @@
 							<label>Inbox Phone Number:</label>
 							<input type="text" name="campaign_phone_number" value="" class="form-control" />
 						</div>
+
+						<div class="form-group col-md-10">
+							<label>Inbox ID:</label>
+							<input type="text" name="campaign_inbox_id" value="" class="form-control" />
+						</div>
+
 					</div> 
 
 					<div class="row"> 
