@@ -106,7 +106,7 @@
 					@endforeach
 					</table>
 
-					<p class="pull-right"><a href="{{ url() }}/download-csv" class="btn btn-sm btn-success"><i class="glyphicon glyphicon-export"></i> Export to .csv</a></p>
+					<p class="pull-right"><a href="{{ url() }}/download-csv/{{ $campaign['campaign_inbox_id']  }}" class="btn btn-sm btn-success"><i class="glyphicon glyphicon-export"></i> Export to .csv</a></p>
 
 
 				</div>

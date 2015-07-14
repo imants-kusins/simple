@@ -76,7 +76,7 @@ class CampaignController extends Controller {
 	}
 
 	
-	public function downloadCsv()
+	public function downloadCsv($campaignId)
 	{
 	    $headers = [
 	            'Cache-Control'       => 'must-revalidate, post-check=0, pre-check=0'
@@ -86,7 +86,7 @@ class CampaignController extends Controller {
 	        ,   'Pragma'              => 'public'
 	    ];
 
-	    $list = $this->campaignData;
+	    $list = $this->campaign->getCampaignMessages($campaignId);
 
 	    array_unshift($list, array_keys($list[0]));
 	   $callback = function() use ($list) 

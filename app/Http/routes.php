@@ -34,6 +34,6 @@ Route::get('create-new-user', 'MainController@createUser');
 
 Route::post('save-campaign', 'CampaignController@store');
 
-Route::get('download-csv', 'CampaignController@downloadCsv');
+Route::get('download-csv/{id}', 'CampaignController@downloadCsv');
 
 
