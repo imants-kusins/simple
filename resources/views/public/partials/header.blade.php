@@ -5,7 +5,7 @@
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
                     <a href="{{ url() }}/campaigns">
-                        All Campaigns
+                        <i class="glyphicon glyphicon-th"></i> All Campaigns
                     </a>
                 </li>
                 @foreach($campaigns as $campaign)
