@@ -78,7 +78,7 @@
 								@endif
 							</td>
 							<td>{{ $message["email_address"] }}</td>
-							<td></td>
+							<td>{{ $message["number_of_runs"] }}</td>
 						</tr>
 					@endforeach
 					</table>

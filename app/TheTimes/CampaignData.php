@@ -30,25 +30,31 @@ class CampaignData
 			$returnMessages[$message["id"]]["phone_number"] = $message["number"];
 			$returnMessages[$message["id"]]["keyword"] = $this->findKeywords($message["message"]);
 			$returnMessages[$message["id"]]["email_address"] = $this->findEmailAddress($message["message"]);
+			$returnMessages[$message["id"]]["number_of_runs"] = $this->findNumberOfRuns($message["message"], 3);
 		}
 
 		return $returnMessages;
 	}
 
+	protected function findNumberOfRuns($message, $position)
+	{
+		$position -= 1;
+
+		$messageArr = explode(' ', $message);
+
+		return (!empty($messageArr[$position])) ? $messageArr[$position] : 'not found';
+	}
+
 
 	protected function findEmailAddress($message)
 	{
-		if (is_array($message)) {
-			foreach (explode(' ', $message) as $keyword) {
-				
+		foreach (explode(' ', $message) as $word) {
+			if ( filter_var($word, FILTER_VALIDATE_EMAIL) ) {
+				return $email;
 			}
-
-			return $email;
-
-		} else {
-			return 'no email address found';
 		}
-		
+
+		return 'not found';
 	}
 
 	protected function findKeywords($message, $keywords = ['Times'])
