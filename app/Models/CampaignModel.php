@@ -17,7 +17,14 @@ class CampaignModel extends Model {
 	 *
 	 * @var array
 	 */
-	//protected $fillable = ['first_name', 'surname', 'email', 'password', 'phone'];
+
+	protected $fillable = [
+		'campaign_name',
+		'campaign_phone_number',
+		'campaign_inbox_id', 
+		'campaign_start_date',
+	 	'duplicate'
+	];
 
 	/**
 	 * The attributes excluded from the model's JSON form.

@@ -11,7 +11,7 @@ class CreateCampaignRequest extends Request {
 	 */
 	public function authorize()
 	{
-		return false;	// set to true, when logging in is finished!
+		return true;
 	}
 
 	/**

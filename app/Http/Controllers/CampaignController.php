@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 use App\TheTimes\CampaignData as CampaignData;
 
+use App\Http\Requests\CreateCampaignRequest as CreateCampaignRequest;
+
+use App\Models\CampaignModel as CampaignModel;
+
 class CampaignController extends Controller {
 
 	protected $campaignData;
@@ -51,9 +55,10 @@ class CampaignController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(CreateCampaignRequest $request)
 	{
 		// TODO create Campaign model and 
+		CampaignModel::create(\Request::all());
 		dd(\Request::all());
 	}
 
