@@ -18,7 +18,7 @@
 					<h2 class="pull-left">{{ $campaign["campaign_name"] }}</h2>
 
 					<div class="top-btn-container pull-right">
-						<a class="btn btn-sm btn-primary" href="{{ url() }}/create"><i class="glyphicon glyphicon-plus"></i> Add Campaign</a>
+						<a class="btn btn-sm btn-primary" href="{{ url() }}/create-campaign"><i class="glyphicon glyphicon-plus"></i> Add Campaign</a>
 						@include('public.partials.logoutBtn')
 					</div>
 					

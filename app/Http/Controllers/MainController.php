@@ -33,4 +33,10 @@ class MainController extends Controller {
 		echo "New User Created!";
 	}
 
+
+	public function terms()
+	{
+		dd("terms and conditions");
+	}
+
 }
