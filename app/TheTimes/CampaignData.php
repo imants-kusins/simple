@@ -13,16 +13,15 @@ class CampaignData
 	{
 		$this->_INBOX_ID = $inboxId;
 
-		dd(json_decode($this->getInbox(), true));
+		dd($this->getInbox());
 	}
 
 	public function getInbox()
 	{
 		
-		$data = 'username=' . $this->getApiUsername() . '&hash=' . $this->getApiHash() . '&inbox_id=' . $this->_INBOX_ID;
+		$data = '&inbox_id=' . $this->_INBOX_ID;
 	 	
 	 	return $this->sendRequest($data);
-		
 	}
 
 
@@ -40,13 +39,13 @@ class CampaignData
 	private function sendRequest($data)
 	{
 		// Send the GET request with cURL
-		$ch = curl_init('https://api.txtlocal.com/get_messages/?' . $data);
+		$ch = curl_init('https://api.txtlocal.com/get_messages/?username=' . $this->getApiUsername() . '&hash=' . $this->getApiHash() . $data);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		$response = curl_exec($ch);
 		curl_close($ch);
 		
-		// Process your response here
-		return $response;
+		
+		return json_decode($response, true);
 	}
 
 }

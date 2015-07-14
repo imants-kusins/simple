@@ -5,6 +5,8 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
+use App\TheTimes\CampaignData as CampaignData;
+
 class CampaignController extends Controller {
 
 	/**
@@ -12,7 +14,7 @@ class CampaignController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index(CampaignData $data)
 	{
 		return view('public.pages.all_campaigns');
 	}

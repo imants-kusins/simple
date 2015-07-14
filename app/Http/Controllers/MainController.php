@@ -5,8 +5,6 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-use App\TheTimes\CampaignData as CampaignData;
-
 use App\User as User;
 
 
@@ -17,7 +15,7 @@ class MainController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index(CampaignData $data)
+	public function index()
 	{
 
 		return view('public.pages.login');
