@@ -36,7 +36,7 @@ class MainController extends Controller {
 
 	public function terms()
 	{
-		dd("terms and conditions");
+		return view('public.pages.terms');
 	}
 
 }
