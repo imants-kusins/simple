@@ -77,7 +77,7 @@
 							<td>{{ $message["phone_number"] }}</td>
 							<td>
 								@if ($message["keyword"] !== false)
-									{{ implode('<br>', $message["keyword"]) }}
+									{{ $message["keyword"] }}
 								@else
 									-
 								@endif

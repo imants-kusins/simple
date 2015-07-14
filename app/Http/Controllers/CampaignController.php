@@ -64,10 +64,9 @@ class CampaignController extends Controller {
 	        ,   'Expires'             => '0'
 	        ,   'Pragma'              => 'public'
 	    ];
-	    //dd($this->campaignData);
+	    
 	    $list = $this->campaignData;
-	    //dd($list);
-	   // $list = [0=>[0=>'array']];
+
 	    array_unshift($list, array_keys($list[0]));
 	   $callback = function() use ($list) 
 	    {
