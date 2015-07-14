@@ -19,10 +19,10 @@ Route::group(array('middleware' => 'auth'), function()
     # Creates a admin user
     Route::get('create-new-user', 'MainController@createUser');
 
-    Route::get('download-csv/{id}', 'CampaignController@downloadCsv');
+    Route::get('download-csv/{id}/{?filter}', 'CampaignController@downloadCsv');
     Route::post('find-winners', 'CampaignController@findWinners');
     
-    Route::get('home', array('middleware' => 'auth', 'uses' => 'CampaignController@index'));
+    Route::get('home', array('uses' => 'CampaignController@index'));
 
     Route::post('save-campaign', 'CampaignController@store');
 

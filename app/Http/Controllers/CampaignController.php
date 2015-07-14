@@ -91,7 +91,7 @@ class CampaignController extends Controller {
 	}
 
 	
-	public function downloadCsv($campaignId, $onlyWinners = false)
+	public function downloadCsv($campaignId, $winnerFilter = false)
 	{
 	    $headers = [
 	            'Cache-Control'       => 'must-revalidate, post-check=0, pre-check=0'
@@ -102,6 +102,9 @@ class CampaignController extends Controller {
 	    ];
 
 	    $list = $this->campaign->getCampaignMessages($campaignId);
+	    if ($winnerFilter > 0) {
+	    	$list = $this->campaign->findWinners($winnerFilter);
+	    }
 
 	    array_unshift($list, array_keys($list[0]));
 	   $callback = function() use ($list) 
