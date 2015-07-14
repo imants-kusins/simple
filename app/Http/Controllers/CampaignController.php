@@ -23,7 +23,7 @@ class CampaignController extends Controller {
 	}
 
 	/**
-	 * Display a listing of the resource.
+	 * Display all existing campaigns.
 	 *
 	 * @return Response
 	 */
