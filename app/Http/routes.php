@@ -14,6 +14,8 @@ Route::get('create', array('middleware' => 'auth', 'uses' => 'CampaignController
 Route::get('campaigns', array('middleware' => 'auth', 'uses' => 'CampaignController@index'));
 Route::get('home', array('middleware' => 'auth', 'uses' => 'CampaignController@index'));
 
+Route::get('find-winners', 'CampaignController@showWinners');
+
 
 
 

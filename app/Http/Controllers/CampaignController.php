@@ -11,9 +11,11 @@ class CampaignController extends Controller {
 
 	protected $campaignData;
 
+	protected $campaign;
+
 	public function __construct(CampaignData $data)
 	{
-		$this->campaignData = $data->getCampaignMessages();
+		$this->campaign = $data;
 	}
 
 	/**
@@ -23,14 +25,14 @@ class CampaignController extends Controller {
 	 */
 	public function index()
 	{
-		
-		return view('public.pages.all_campaigns')->with('messages', $this->campaignData);
+		return view('public.pages.all_campaigns')->with('messages', $this->campaign->getCampaignMessages());
 	}
 
 
 	public function showWinners()
 	{
-		return view('public.pages.all_campaigns')->with('messages', $this->campaignData);
+
+		return view('public.pages.all_campaigns')->with('messages', $this->campaign->findWinners());
 	}
 
 	/**
@@ -64,7 +66,7 @@ class CampaignController extends Controller {
 	        ,   'Expires'             => '0'
 	        ,   'Pragma'              => 'public'
 	    ];
-	    
+
 	    $list = $this->campaignData;
 
 	    array_unshift($list, array_keys($list[0]));
