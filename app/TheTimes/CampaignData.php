@@ -22,6 +22,7 @@ class CampaignData
 
 	public function getCampaignMessages()
 	{
+
 		$returnMessages = [];
 
 		$inboxData = $this->getInbox();
@@ -29,8 +30,10 @@ class CampaignData
 		$cc = -1;
 		foreach ($inboxData["messages"] as $k => &$message) {
 			$cc++;
-			//$message["message"] = 'TIMES imants@eskimo.uk.com 34';
-			if ($this->checkDuplicate($message["number"]) === false) {
+
+			//$message["message"] = 'Times imants@eskimo.uk.com 34';
+
+			//if ($this->checkDuplicate($message["number"]) === false) {
 
 				$this->phoneNumbers[] = $message["number"];
 
@@ -41,10 +44,23 @@ class CampaignData
 				$returnMessages[$cc]["email_address"] = $this->findEmailAddress($message["message"]);
 				$returnMessages[$cc]["number_of_runs"] = $this->findNumberOfRuns($message["message"], 3);
 				// $returnMessages[$message["id"]]["isValid"] = $this->isMessageValid($message["message"]);
-			}
+			//}
 		}
 
 		return $returnMessages;
+	}
+
+
+	public function findWinners($winningRuns = 123)
+	{
+		$messages = $this->getCampaignMessages();
+		foreach ($messages as $k => &$v) {
+			if ($v["number_of_runs"] != $winningRuns) {
+				echo $v["number_of_runs"] . ",";
+			}
+		}
+		dd();
+		return $messages;
 	}
 
 

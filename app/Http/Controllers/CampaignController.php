@@ -27,6 +27,12 @@ class CampaignController extends Controller {
 		return view('public.pages.all_campaigns')->with('messages', $this->campaignData);
 	}
 
+
+	public function showWinners()
+	{
+		return view('public.pages.all_campaigns')->with('messages', $this->campaignData);
+	}
+
 	/**
 	 * Show the form for creating a new resource.
 	 *
@@ -48,57 +54,13 @@ class CampaignController extends Controller {
 		dd(\Request::all());
 	}
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
-	}
-
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
-	}
-
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
-	}
-
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
-	}
-
-
+	
 	public function downloadCsv()
 	{
 	    $headers = [
 	            'Cache-Control'       => 'must-revalidate, post-check=0, pre-check=0'
 	        ,   'Content-type'        => 'text/csv'
-	        ,   'Content-Disposition' => 'attachment; filename=visitors.csv'
+	        ,   'Content-Disposition' => 'attachment; filename=campaign.csv'
 	        ,   'Expires'             => '0'
 	        ,   'Pragma'              => 'public'
 	    ];
