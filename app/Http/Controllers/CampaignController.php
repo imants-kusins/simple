@@ -37,7 +37,9 @@ class CampaignController extends Controller {
 
 	public function viewSingleCampaign($id)
 	{
-		dd($id);
+		return view('public.pages.single_campaign')->with(
+			'messages'	, $this->campaign->getCampaignMessages()
+		);
 	}
 
 

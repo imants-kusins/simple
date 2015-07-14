@@ -15,7 +15,7 @@
 					
 					<!-- top bit -->
 
-					<h2 class="pull-left">Campaign Title</h2>
+					<h2 class="pull-left">All Campaigns</h2>
 
 					<div class="top-btn-container pull-right">
 						<a class="btn btn-sm btn-primary" href="{{ url() }}/create"><i class="glyphicon glyphicon-plus"></i> Add Campaign</a>
@@ -55,7 +55,7 @@
 						</tr>
 					@endforeach
 
-			<!-- 			//			 -->
+
 		</div>
 
 
