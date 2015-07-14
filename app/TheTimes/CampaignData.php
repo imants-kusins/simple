@@ -24,7 +24,10 @@ class CampaignData
 		$returnMessages = [];
 
 		$inboxData = $this->getInbox();
-		foreach ($inboxData["messages"] as $k => $message) {
+		foreach ($inboxData["messages"] as $k => &$message) {
+
+			$message["message"] = 'TIMES imants@eskimo.uk.com 56';
+
 			$returnMessages[$message["id"]]["entry_time"] = date('H:i', strtotime($message["date"]));
 			$returnMessages[$message["id"]]["entry_date"] = date('d/m/Y', strtotime($message["date"]));
 			$returnMessages[$message["id"]]["phone_number"] = $message["number"];
@@ -42,7 +45,7 @@ class CampaignData
 
 		$messageArr = explode(' ', $message);
 
-		return (!empty($messageArr[$position])) ? $messageArr[$position] : 'not found';
+		return (!empty($messageArr[$position]) && is_numeric($messageArr[$position])) ? $messageArr[$position] : 'not found';
 	}
 
 
@@ -50,14 +53,14 @@ class CampaignData
 	{
 		foreach (explode(' ', $message) as $word) {
 			if ( filter_var($word, FILTER_VALIDATE_EMAIL) ) {
-				return $email;
+				return $word;
 			}
 		}
 
 		return 'not found';
 	}
 
-	protected function findKeywords($message, $keywords = ['Times'])
+	protected function findKeywords($message, $keywords = ['TIMES'])
 	{
 		foreach ($keywords as $keyword) {
 			if ( ! str_contains($message, $keyword) ) {
