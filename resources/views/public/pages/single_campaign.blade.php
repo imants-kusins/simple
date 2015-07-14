@@ -29,7 +29,7 @@
 
 		<div class="content-container">
 		
-			<div class="row col-md-8">
+			<div class="row col-md-7">
 				<div class="campaign-info-container">
 					<p><strong>SMS Number:</strong> {{ $campaign["campaign_phone_number"] }}</p>
 					<p><strong>Campaign Time From:</strong> {{ date('d/m/Y H:i' ,strtotime($campaign["campaign_start_date"])) }} - {{ date('d/m/Y H:i' ,strtotime($campaign["campaign_end_date"])) }}</p>
@@ -43,21 +43,17 @@
 				</div>
 			</div>
 
-			<div class="col-md-4 search-filter-container">
-				<form class="pull-right">
-
-				  <div class="form-group">
-				    <div class="input-group">
+			<div class="col-md-5 search-filter-container form-inline">
+				<div class="form-group">
 				      <!-- <div class="input-group-addon"><i class="glyphicon glyphicon-search"></i></div> -->
-				      <form method="POST" action="">
+				      <form method="POST" action="{{ url() }}/find-winners">
 				      <input type="hidden" name="_token" value="{{ csrf_token() }}">	
-				      <input type="text" class="form-control search-field pull-left" name="search_filter" id="search_filter" placeholder="Search...">
-				    	<!-- <button type="submit" class="btn btn-sm btn-primary pull-right"><i class="glyphicon glyphicon-search"></i> Find</button> -->
+				      <input type="text" class="form-control search-field" name="search_filter" id="search_filter" placeholder="Number of Runs...">
+				    	<button type="submit" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-search"></i></button>
 				      </form>
-				    </div>
+				   
 				  </div>
 
-				</form>
 			</div>
 
 

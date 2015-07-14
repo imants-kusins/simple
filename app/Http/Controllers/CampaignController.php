@@ -53,6 +53,7 @@ class CampaignController extends Controller {
 
 	public function findWinners()
 	{
+		dd(\Request::all());
 		$this->campaignData = $this->campaign->findWinners();
 		return view('public.pages.all_campaigns')->with('messages', $this->campaignData);
 	}
