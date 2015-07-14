@@ -8,11 +8,10 @@
                         Start Bootstrap
                     </a>
                 </li> -->
+                @foreach($campaigns as $campaign)
                 <li>
-                    <a href="#">Campaign</a>
+                    <a href="{{ url() }}/view-campaign/{{ $campaign['id'] }}">{{ $campaign['campaign_name'] }}</a>
                 </li>
-                <li>
-                    <a href="#">Campaign</a>
-                </li>
+                @endforeach
             </ul>
         </div>

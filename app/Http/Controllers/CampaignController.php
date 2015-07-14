@@ -29,8 +29,15 @@ class CampaignController extends Controller {
 	 */
 	public function index()
 	{
-		$this->campaignData = $this->campaign->getCampaignMessages();
-		return view('public.pages.all_campaigns')->with('messages', $this->campaignData);
+
+		//$this->campaignData = $this->campaign->getCampaignMessages();
+		return view('public.pages.all_campaigns')->with('campaigns', CampaignModel::all()->toArray());
+	}
+
+
+	public function viewSingleCampaign($id)
+	{
+		dd($id);
 	}
 
 

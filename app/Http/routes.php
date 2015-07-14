@@ -13,7 +13,7 @@ Route::group(array('middleware' => 'auth'), function()
 {
 
 	Route::get('campaigns', array('uses' => 'CampaignController@index'));
-    
+    Route::get('view-campaign/{id}', array('uses' => 'CampaignController@viewSingleCampaign'));
 
 });
 

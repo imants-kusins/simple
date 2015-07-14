@@ -23,6 +23,7 @@ class CampaignModel extends Model {
 		'campaign_phone_number',
 		'campaign_inbox_id', 
 		'campaign_start_date',
+		'campaign_end_date',
 	 	'duplicate'
 	];
 
