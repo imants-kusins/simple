@@ -118,6 +118,15 @@ class CampaignData
 		// 	$data .= '&min_time=' . $mintime . '&max_time=' . $maxtime;
 		// 	//dd($data);
 		// }
+		//1436832000
+		//dd(strtotime( date('Y-m-d') ));
+		//dd(strtotime('2015-07-15 23:59:59'));
+
+		//$min_time = (new \DateTime('2015-07-14 00:00:01'))->format('c');
+		//$max_time = (new \DateTime('2015-07-15 23:59:59'))->format('c');
+		//dd($min_time);
+
+		//$data .= '&min_time='. strtotime($min_time);
 
 	 	return $this->sendRequest($data);
 	}
@@ -142,7 +151,7 @@ class CampaignData
 		$response = curl_exec($ch);
 		curl_close($ch);
 		
-		//dd($response);
+		dd($response);
 		return json_decode($response, true);
 	}
 
