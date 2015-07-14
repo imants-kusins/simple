@@ -26,7 +26,7 @@ class CampaignData
 		$returnMessages = [];
 
 		$inboxData = $this->getInbox();
-		//dd($inboxData);
+
 		$cc = -1;
 		foreach ($inboxData["messages"] as $k => &$message) {
 			$cc++;
@@ -110,6 +110,14 @@ class CampaignData
 	{
 		
 		$data = '&inbox_id=' . $this->_INBOX_ID . '&sort_order=desc';
+		// if (1 === 1) {
+		// 	$mintime = date_timestamp_get(date('2015-07-14 00:00:01'));
+		// 	$maxtime = date_timestamp_get(date('2015-07-15 23:59:59'));
+		// 	// echo time();
+		// 	// dd( 'd-m-Y', $mintime );
+		// 	$data .= '&min_time=' . $mintime . '&max_time=' . $maxtime;
+		// 	//dd($data);
+		// }
 
 	 	return $this->sendRequest($data);
 	}
@@ -134,7 +142,7 @@ class CampaignData
 		$response = curl_exec($ch);
 		curl_close($ch);
 		
-
+		dd($response);
 		return json_decode($response, true);
 	}
 
