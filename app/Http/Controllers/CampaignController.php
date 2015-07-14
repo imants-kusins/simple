@@ -25,14 +25,15 @@ class CampaignController extends Controller {
 	 */
 	public function index()
 	{
-		return view('public.pages.all_campaigns')->with('messages', $this->campaign->getCampaignMessages());
+		$this->campaignData = $this->campaign->getCampaignMessages();
+		return view('public.pages.all_campaigns')->with('messages', $this->campaignData);
 	}
 
 
 	public function showWinners()
 	{
-
-		return view('public.pages.all_campaigns')->with('messages', $this->campaign->findWinners());
+		$this->campaignData = $this->campaign->findWinners();
+		return view('public.pages.all_campaigns')->with('messages', $this->campaignData);
 	}
 
 	/**
