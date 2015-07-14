@@ -25,16 +25,17 @@ class CampaignData
 
 		$inboxData = $this->getInbox();
 		//dd($inboxData);
+		$cc = -1;
 		foreach ($inboxData["messages"] as $k => &$message) {
-
+			$cc++;
 			//$message["message"] = 'TIMES imants@eskimo.uk.com 34';
 
-			$returnMessages[$message["id"]]["entry_time"] = date('H:i', strtotime($message["date"]));
-			$returnMessages[$message["id"]]["entry_date"] = date('d/m/Y', strtotime($message["date"]));
-			$returnMessages[$message["id"]]["phone_number"] = $message["number"];
-			$returnMessages[$message["id"]]["keyword"] = $this->findKeywords($message["message"]);
-			$returnMessages[$message["id"]]["email_address"] = $this->findEmailAddress($message["message"]);
-			$returnMessages[$message["id"]]["number_of_runs"] = $this->findNumberOfRuns($message["message"], 3);
+			$returnMessages[$cc]["entry_time"] = date('H:i', strtotime($message["date"]));
+			$returnMessages[$cc]["entry_date"] = date('d/m/Y', strtotime($message["date"]));
+			$returnMessages[$cc]["phone_number"] = $message["number"];
+			$returnMessages[$cc]["keyword"] = $this->findKeywords($message["message"]);
+			$returnMessages[$cc]["email_address"] = $this->findEmailAddress($message["message"]);
+			$returnMessages[$cc]["number_of_runs"] = $this->findNumberOfRuns($message["message"], 3);
 			// $returnMessages[$message["id"]]["isValid"] = $this->isMessageValid($message["message"]);
 		}
 

@@ -65,6 +65,7 @@
 						<th>Email Address</th>
 						<th>Number of Runs</th>
 					</tr>
+					
 					@foreach($messages as $key => $message)
 						<tr>
 							<td>{{ $message["entry_time"] }}</td>
@@ -95,7 +96,7 @@
 					@endforeach
 					</table>
 
-					<p class="pull-right"><a href="{{ url() }}/export-csv" class="btn btn-sm btn-success"><i class="glyphicon glyphicon-export"></i> Export to .csv</a></p>
+					<p class="pull-right"><a href="{{ url() }}/download-csv" class="btn btn-sm btn-success"><i class="glyphicon glyphicon-export"></i> Export to .csv</a></p>
 
 
 				</div>

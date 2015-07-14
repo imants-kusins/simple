@@ -9,14 +9,22 @@ use App\TheTimes\CampaignData as CampaignData;
 
 class CampaignController extends Controller {
 
+	protected $campaignData;
+
+	public function __construct(CampaignData $data)
+	{
+		$this->campaignData = $data->getCampaignMessages();
+	}
+
 	/**
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
 	 */
-	public function index(CampaignData $data)
+	public function index()
 	{
-		return view('public.pages.all_campaigns')->with('messages', $data->getCampaignMessages());
+		
+		return view('public.pages.all_campaigns')->with('messages', $this->campaignData);
 	}
 
 	/**
@@ -82,6 +90,30 @@ class CampaignController extends Controller {
 	public function destroy($id)
 	{
 		//
+	}
+
+
+	public function downloadCsv()
+	{
+	    $headers = [
+	            'Cache-Control'       => 'must-revalidate, post-check=0, pre-check=0'
+	        ,   'Content-type'        => 'text/csv'
+	        ,   'Content-Disposition' => 'attachment; filename=visitors.csv'
+	        ,   'Expires'             => '0'
+	        ,   'Pragma'              => 'public'
+	    ];
+	    //dd($this->campaignData);
+	    $list = $this->campaignData;
+	    array_unshift($list, array_keys($list[0]));
+	   $callback = function() use ($list) 
+	    {
+	        $FH = fopen('php://output', 'w');
+	        foreach ($list as $row) { 
+	            fputcsv($FH, $row);
+	        }
+	        fclose($FH);
+	    };
+	    return \Response::stream($callback, 200, $headers);
 	}
 
 }

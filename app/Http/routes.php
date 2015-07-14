@@ -28,6 +28,6 @@ Route::post('save-campaign', 'CampaignController@store');
 
 // Route::post('create-user', 'VisitorController@create');
 // Route::get('delete-visitor/{id}', 'VisitorController@delete');
-// Route::get('download-csv', 'VisitorController@downloadCsv');
+Route::get('download-csv', 'CampaignController@downloadCsv');
 
 
