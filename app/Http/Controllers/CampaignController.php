@@ -34,6 +34,11 @@ class CampaignController extends Controller {
 	}
 
 
+	/**
+	 * Display single campaign.
+	 *
+	 * @return Response
+	 */
 	public function viewSingleCampaign($id)
 	{
 
