@@ -7,30 +7,38 @@ class CampaignData
 
 	private $_USERNAME	= 'me@leebooth.com';
 	private $_API_HASH 	= '04de81a3e9281684c3a2e23abfdc41e27f6fc63f';
-	private $_INBOX_ID	= '760434';
+	private $_INBOX_ID;
 
-	public function __construct()
+	public function __construct($inboxId = '760434')
 	{
-		// $textlocal = new \Textlocal('me@leebooth.com', '04de81a3e9281684c3a2e23abfdc41e27f6fc63f');
-	
-		// $inbox_id = '6676';
-		
-		// $response = $textlocal->getMessages($inbox_id);
-		// print_r($response);
+		$this->_INBOX_ID = $inboxId;
 
-		// Textlocal account details
-		
 		dd(json_decode($this->getInbox(), true));
-
 	}
 
 	public function getInbox()
 	{
 		
-	 
-		// Prepare data for POST request
-		$data = 'username=' . $this->_getApiUsername() . '&hash=' . $this->_getApiHash() . '&inbox_id=' . $this->_INBOX_ID;
-	 
+		$data = 'username=' . $this->getApiUsername() . '&hash=' . $this->getApiHash() . '&inbox_id=' . $this->_INBOX_ID;
+	 	
+	 	return $this->sendRequest($data);
+		
+	}
+
+
+	protected function getApiUsername()
+	{
+		return urlencode($this->_USERNAME);
+	}
+
+
+	protected function getApiHash()
+	{
+		return urlencode($this->_API_HASH);
+	}
+
+	private function sendRequest($data)
+	{
 		// Send the GET request with cURL
 		$ch = curl_init('https://api.txtlocal.com/get_messages/?' . $data);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -39,18 +47,6 @@ class CampaignData
 		
 		// Process your response here
 		return $response;
-	}
-
-
-	protected function _getApiUsername()
-	{
-		return urlencode($this->_USERNAME);
-	}
-
-
-	protected function _getApiHash()
-	{
-		return urlencode($this->_API_HASH);
 	}
 
 }
