@@ -11,11 +11,12 @@ class CampaignData
 	private $_API_HASH 	= '04de81a3e9281684c3a2e23abfdc41e27f6fc63f';
 	private $_INBOX_ID;
 
+
+	protected $phoneNumbers = [];
+
 	public function __construct($inboxId = '760434')
 	{
 		$this->_INBOX_ID = $inboxId;
-
-		//dd($this->getInbox());
 	}
 
 
@@ -30,16 +31,31 @@ class CampaignData
 			$cc++;
 			//$message["message"] = 'TIMES imants@eskimo.uk.com 34';
 
-			$returnMessages[$cc]["entry_time"] = date('H:i', strtotime($message["date"]));
-			$returnMessages[$cc]["entry_date"] = date('d/m/Y', strtotime($message["date"]));
-			$returnMessages[$cc]["phone_number"] = $message["number"];
-			$returnMessages[$cc]["keyword"] = $this->findKeywords($message["message"]);
-			$returnMessages[$cc]["email_address"] = $this->findEmailAddress($message["message"]);
-			$returnMessages[$cc]["number_of_runs"] = $this->findNumberOfRuns($message["message"], 3);
-			// $returnMessages[$message["id"]]["isValid"] = $this->isMessageValid($message["message"]);
+			
+
+			if ($this->checkDuplicate($message["number"]) === false) {
+
+				$this->phoneNumbers[] = $message["number"];
+				
+				$returnMessages[$cc]["entry_time"] = date('H:i', strtotime($message["date"]));
+				$returnMessages[$cc]["entry_date"] = date('d/m/Y', strtotime($message["date"]));
+				$returnMessages[$cc]["phone_number"] = $message["number"];
+				$returnMessages[$cc]["keyword"] = $this->findKeywords($message["message"]);
+				$returnMessages[$cc]["email_address"] = $this->findEmailAddress($message["message"]);
+				$returnMessages[$cc]["number_of_runs"] = $this->findNumberOfRuns($message["message"], 3);
+				// $returnMessages[$message["id"]]["isValid"] = $this->isMessageValid($message["message"]);
+			}
 		}
 
 		return $returnMessages;
+	}
+
+
+	protected function checkDuplicate($phoneNumber)
+	{
+		if (in_array($phoneNumber, $this->phoneNumbers)) return true;
+
+		return false;
 	}
 
 	protected function findNumberOfRuns($message, $position)
