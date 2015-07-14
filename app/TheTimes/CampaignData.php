@@ -14,16 +14,18 @@ class CampaignData
 
 	protected $phoneNumbers = [];
 
-	public function __construct($inboxId = '760434')
+	public function __construct()
 	{
-		$this->_INBOX_ID = $inboxId;
+		
 	}
 
 
 
 
-	public function getCampaignMessages()
+	public function getCampaignMessages($inboxId = '760434')
 	{
+
+		$this->_INBOX_ID = $inboxId;
 
 		$returnMessages = [];
 
