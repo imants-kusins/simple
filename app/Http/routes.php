@@ -12,6 +12,7 @@ Route::get('logout', 'MainController@logout');
 
 Route::get('create', array('middleware' => 'auth', 'uses' => 'CampaignController@create'));
 Route::get('campaigns', array('middleware' => 'auth', 'uses' => 'CampaignController@index'));
+Route::get('home', array('middleware' => 'auth', 'uses' => 'CampaignController@index'));
 
 //Route::get('create', 'CampaignController@create');
 //Route::get('campaigns', 'CampaignController@index');
