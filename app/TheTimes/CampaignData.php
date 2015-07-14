@@ -31,9 +31,9 @@ class CampaignData
 		foreach ($inboxData["messages"] as $k => &$message) {
 			$cc++;
 
-			//$message["message"] = 'Times imants@eskimo.uk.com 34';
+			//$message["message"] = 'TIMES imants@eskimo.uk.com 34';
 
-			//if ($this->checkDuplicate($message["number"]) === false) {
+			if ($this->checkDuplicate($message["number"]) === false) {
 
 				$this->phoneNumbers[] = $message["number"];
 
@@ -44,7 +44,7 @@ class CampaignData
 				$returnMessages[$cc]["email_address"] = $this->findEmailAddress($message["message"]);
 				$returnMessages[$cc]["number_of_runs"] = $this->findNumberOfRuns($message["message"], 3);
 				// $returnMessages[$message["id"]]["isValid"] = $this->isMessageValid($message["message"]);
-			//}
+			}
 		}
 
 		return $returnMessages;
@@ -92,10 +92,13 @@ class CampaignData
 		return false;
 	}
 
-	protected function findKeywords($message, $keywords = ['Times'])
+	protected function findKeywords($message, $keywords = ['Times'], $position = 1)
 	{
+		$position -= 1;
+		$messageArr = explode(' ', $message);
+
 		foreach ($keywords as $keyword) {
-			if ( ! str_contains($message, $keyword) ) {
+			if ( strtoupper($messageArr[$position]) !== strtoupper($keyword) ) {
 				return false;
 			} 
 		}
