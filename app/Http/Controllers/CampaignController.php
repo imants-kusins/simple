@@ -54,9 +54,17 @@ class CampaignController extends Controller {
 	public function findWinners()
 	{
 		$params = \Request::all();
+		//dd($params);
+		$campaign = CampaignModel::findOrFail($params["campaign_id"])->toArray();
+
+		
 		// $params["number_of_runs"]
-		$this->campaignData = $this->campaign->findWinners();
-		return view('public.pages.all_campaigns')->with('messages', $this->campaignData);
+		$this->campaignData = $this->campaign->findWinners($params["number_of_runs"]);
+		return view('public.pages.single_campaign')->with([
+			'messages' 	=> $this->campaignData,
+			'campaign'	=> $campaign,
+			'search_value'	=> $params["number_of_runs"]
+		]);
 	}
 
 	/**
