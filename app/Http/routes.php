@@ -20,7 +20,7 @@ Route::group(array('middleware' => 'auth'), function()
     Route::get('create-new-user', 'MainController@createUser');
 
     Route::get('download-csv/{id}', 'CampaignController@downloadCsv');
-    Route::get('find-winners', 'CampaignController@showWinners');
+    Route::post('find-winners', 'CampaignController@findWinners');
     
     Route::get('home', array('middleware' => 'auth', 'uses' => 'CampaignController@index'));
 

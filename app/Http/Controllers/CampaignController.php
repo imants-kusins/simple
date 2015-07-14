@@ -30,7 +30,6 @@ class CampaignController extends Controller {
 	public function index()
 	{
 
-		//$this->campaignData = $this->campaign->getCampaignMessages();
 		return view('public.pages.all_campaigns')->with('campaigns', CampaignModel::all()->toArray());
 	}
 
@@ -47,7 +46,7 @@ class CampaignController extends Controller {
 	}
 
 
-	public function showWinners()
+	public function findWinners()
 	{
 		$this->campaignData = $this->campaign->findWinners();
 		return view('public.pages.all_campaigns')->with('messages', $this->campaignData);
@@ -76,7 +75,7 @@ class CampaignController extends Controller {
 	}
 
 	
-	public function downloadCsv($campaignId)
+	public function downloadCsv($campaignId, $onlyWinners = false)
 	{
 	    $headers = [
 	            'Cache-Control'       => 'must-revalidate, post-check=0, pre-check=0'
