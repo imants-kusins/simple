@@ -53,14 +53,19 @@ class CampaignData
 
 	public function findWinners($winningRuns = 123)
 	{
+
+		$returnMessages = [];
+
 		$messages = $this->getCampaignMessages();
-		foreach ($messages as $k => &$v) {
-			if ($v["number_of_runs"] != $winningRuns) {
-				echo $v["number_of_runs"] . ",";
+		$cc = -1;
+		foreach ($messages as $k => $v) {
+			if ($v["number_of_runs"] == $winningRuns) {
+				$cc++;
+				$returnMessages[$cc] = $v;
 			}
 		}
-		dd();
-		return $messages;
+		
+		return $returnMessages;
 	}
 
 
@@ -151,7 +156,7 @@ class CampaignData
 		$response = curl_exec($ch);
 		curl_close($ch);
 		
-		
+
 		return json_decode($response, true);
 	}
 
