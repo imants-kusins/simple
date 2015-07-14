@@ -3,11 +3,11 @@
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
-                <!-- <li class="sidebar-brand">
-                    <a href="#">
-                        Start Bootstrap
+                <li class="sidebar-brand">
+                    <a href="{{ url() }}/campaigns">
+                        All Campaigns
                     </a>
-                </li> -->
+                </li>
                 @foreach($campaigns as $campaign)
                 <li>
                     <a href="{{ url() }}/view-campaign/{{ $campaign['id'] }}">{{ $campaign['campaign_name'] }}</a>
