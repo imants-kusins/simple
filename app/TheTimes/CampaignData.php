@@ -2,6 +2,8 @@
 
 use App\TheTimes\TextLocal as TextLocal;
 
+use  Carbon\Carbon as Carbon;
+
 class CampaignData
 {
 
@@ -13,14 +15,41 @@ class CampaignData
 	{
 		$this->_INBOX_ID = $inboxId;
 
-		dd($this->getInbox());
+		//dd($this->getInbox());
+	}
+
+
+	public function getCampaignMessages()
+	{
+		$returnMessages = [];
+
+		$inboxData = $this->getInbox();
+		foreach ($inboxData["messages"] as $k => $message) {
+			$returnMessages[$message["id"]]["entry_time"] = date('H:i', strtotime($message["date"]));
+			$returnMessages[$message["id"]]["entry_date"] = date('d/m/Y', strtotime($message["date"]));
+			$returnMessages[$message["id"]]["phone_number"] = $message["number"];
+			$returnMessages[$message["id"]]["keyword"] = $this->findKeywords($message["message"]);
+		}
+
+		return $returnMessages;
+	}
+
+	protected function findKeywords($message, $keywords = ['Times'])
+	{
+		foreach ($keywords as $keyword) {
+			if ( ! str_contains($message, $keyword) ) {
+				return false;
+			} 
+		}
+		
+		return $keywords;
 	}
 
 	public function getInbox()
 	{
 		
-		$data = '&inbox_id=' . $this->_INBOX_ID;
-	 	
+		$data = '&inbox_id=' . $this->_INBOX_ID . '&sort_order=desc';
+
 	 	return $this->sendRequest($data);
 	}
 
@@ -44,7 +73,7 @@ class CampaignData
 		$response = curl_exec($ch);
 		curl_close($ch);
 		
-		
+
 		return json_decode($response, true);
 	}
 

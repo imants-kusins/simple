@@ -65,6 +65,21 @@
 						<th>Email Address</th>
 						<th>Number of Runs</th>
 					</tr>
+					@foreach($messages as $key => $message)
+						<tr>
+							<td>{{ $message["entry_time"] }}</td>
+							<td>{{ $message["entry_date"] }}</td>
+							<td>{{ $message["phone_number"] }}</td>
+							<td>
+								@if ($message["keyword"] !== false)
+									{{ implode('<br>', $message["keyword"]) }}
+								@else
+									-
+								@endif
+							</td>
+							<td></td>
+						</tr>
+					@endforeach
 					<tr>
 						<td>content</td>
 						<td>content</td>

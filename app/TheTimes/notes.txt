@@ -1,5 +1,0 @@
-notes:
-
-	- realwireless (Wi-Fi) for the Olympic stadium.
-	- sticket digital ticketing
-	

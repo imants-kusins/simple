@@ -16,7 +16,7 @@ class CampaignController extends Controller {
 	 */
 	public function index(CampaignData $data)
 	{
-		return view('public.pages.all_campaigns');
+		return view('public.pages.all_campaigns')->with('messages', $data->getCampaignMessages());
 	}
 
 	/**
