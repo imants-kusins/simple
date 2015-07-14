@@ -77,8 +77,20 @@
 									-
 								@endif
 							</td>
-							<td>{{ $message["email_address"] }}</td>
-							<td>{{ $message["number_of_runs"] }}</td>
+							<td>
+								@if ($message["email_address"] !== false)
+									{{ $message["email_address"] }}
+								@else
+									not found
+								@endif
+							</td>
+							<td>
+							@if ($message["number_of_runs"] !== false)
+									{{ $message["number_of_runs"] }}
+								@else
+									not found
+								@endif
+							</td>
 						</tr>
 					@endforeach
 					</table>

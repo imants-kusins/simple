@@ -26,7 +26,7 @@ class CampaignData
 		$inboxData = $this->getInbox();
 		foreach ($inboxData["messages"] as $k => &$message) {
 
-			$message["message"] = 'TIMES imants@eskimo.uk.com 56';
+			$message["message"] = 'TIMES imants@eskimo.uk.com 34';
 
 			$returnMessages[$message["id"]]["entry_time"] = date('H:i', strtotime($message["date"]));
 			$returnMessages[$message["id"]]["entry_date"] = date('d/m/Y', strtotime($message["date"]));
@@ -34,6 +34,7 @@ class CampaignData
 			$returnMessages[$message["id"]]["keyword"] = $this->findKeywords($message["message"]);
 			$returnMessages[$message["id"]]["email_address"] = $this->findEmailAddress($message["message"]);
 			$returnMessages[$message["id"]]["number_of_runs"] = $this->findNumberOfRuns($message["message"], 3);
+			// $returnMessages[$message["id"]]["isValid"] = $this->isMessageValid($message["message"]);
 		}
 
 		return $returnMessages;
@@ -45,7 +46,7 @@ class CampaignData
 
 		$messageArr = explode(' ', $message);
 
-		return (!empty($messageArr[$position]) && is_numeric($messageArr[$position])) ? $messageArr[$position] : 'not found';
+		return (!empty($messageArr[$position]) && is_numeric($messageArr[$position])) ? $messageArr[$position] : false;
 	}
 
 
@@ -57,7 +58,7 @@ class CampaignData
 			}
 		}
 
-		return 'not found';
+		return false;
 	}
 
 	protected function findKeywords($message, $keywords = ['TIMES'])
