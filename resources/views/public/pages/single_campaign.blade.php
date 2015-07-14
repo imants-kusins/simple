@@ -48,7 +48,7 @@
 				      <!-- <div class="input-group-addon"><i class="glyphicon glyphicon-search"></i></div> -->
 				      <form method="POST" action="{{ url() }}/find-winners">
 				      <input type="hidden" name="_token" value="{{ csrf_token() }}">	
-				      <input type="text" class="form-control search-field" name="search_filter" id="search_filter" placeholder="Number of Runs...">
+				      <input type="text" class="form-control search-field" name="number_of_runs" id="number_of_runs" placeholder="Number of Runs...">
 				    	<button type="submit" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-search"></i></button>
 				      </form>
 				   
