@@ -103,7 +103,7 @@ class CampaignData
 			} 
 		}
 
-		return $keywords;
+		return implode(', ', $keywords);
 	}
 
 	public function getInbox()

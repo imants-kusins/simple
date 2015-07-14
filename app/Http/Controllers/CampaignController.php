@@ -66,6 +66,8 @@ class CampaignController extends Controller {
 	    ];
 	    //dd($this->campaignData);
 	    $list = $this->campaignData;
+	    //dd($list);
+	   // $list = [0=>[0=>'array']];
 	    array_unshift($list, array_keys($list[0]));
 	   $callback = function() use ($list) 
 	    {
