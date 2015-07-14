@@ -77,17 +77,10 @@
 									-
 								@endif
 							</td>
+							<td>{{ $message["email_address"] }}</td>
 							<td></td>
 						</tr>
 					@endforeach
-					<tr>
-						<td>content</td>
-						<td>content</td>
-						<td>content</td>
-						<td>content</td>
-						<td>content</td>
-						<td>content</td>
-					</tr>
 					</table>
 
 					<p class="pull-right"><a href="{{ url() }}/export-csv" class="btn btn-sm btn-success"><i class="glyphicon glyphicon-export"></i> Export to .csv</a></p>

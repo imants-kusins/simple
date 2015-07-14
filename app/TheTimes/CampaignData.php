@@ -29,9 +29,26 @@ class CampaignData
 			$returnMessages[$message["id"]]["entry_date"] = date('d/m/Y', strtotime($message["date"]));
 			$returnMessages[$message["id"]]["phone_number"] = $message["number"];
 			$returnMessages[$message["id"]]["keyword"] = $this->findKeywords($message["message"]);
+			$returnMessages[$message["id"]]["email_address"] = $this->findEmailAddress($message["message"]);
 		}
 
 		return $returnMessages;
+	}
+
+
+	protected function findEmailAddress($message)
+	{
+		if (is_array($message)) {
+			foreach (explode(' ', $message) as $keyword) {
+				
+			}
+
+			return $email;
+
+		} else {
+			return 'no email address found';
+		}
+		
 	}
 
 	protected function findKeywords($message, $keywords = ['Times'])
@@ -41,7 +58,7 @@ class CampaignData
 				return false;
 			} 
 		}
-		
+
 		return $keywords;
 	}
 
