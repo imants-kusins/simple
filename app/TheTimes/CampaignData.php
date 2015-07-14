@@ -30,13 +30,10 @@ class CampaignData
 		foreach ($inboxData["messages"] as $k => &$message) {
 			$cc++;
 			//$message["message"] = 'TIMES imants@eskimo.uk.com 34';
-
-			
-
 			if ($this->checkDuplicate($message["number"]) === false) {
 
 				$this->phoneNumbers[] = $message["number"];
-				
+
 				$returnMessages[$cc]["entry_time"] = date('H:i', strtotime($message["date"]));
 				$returnMessages[$cc]["entry_date"] = date('d/m/Y', strtotime($message["date"]));
 				$returnMessages[$cc]["phone_number"] = $message["number"];

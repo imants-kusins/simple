@@ -42,8 +42,12 @@
 
 				  <div class="form-group">
 				    <div class="input-group">
-				      <div class="input-group-addon"><i class="glyphicon glyphicon-search"></i></div>
-				      <input type="text" class="form-control search-field" name="search_filter" id="search_filter" placeholder="Search...">
+				      <!-- <div class="input-group-addon"><i class="glyphicon glyphicon-search"></i></div> -->
+				      <form method="POST" action="">
+				      <input type="hidden" name="_token" value="{{ csrf_token() }}">	
+				      <input type="text" class="form-control search-field pull-left" name="search_filter" id="search_filter" placeholder="Search...">
+				    	<!-- <button type="submit" class="btn btn-sm btn-primary pull-right"><i class="glyphicon glyphicon-search"></i> Find</button> -->
+				      </form>
 				    </div>
 				  </div>
 
@@ -65,7 +69,7 @@
 						<th>Email Address</th>
 						<th>Number of Runs</th>
 					</tr>
-					
+
 					@foreach($messages as $key => $message)
 						<tr>
 							<td>{{ $message["entry_time"] }}</td>
