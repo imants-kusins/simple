@@ -142,7 +142,7 @@ class CampaignData
 		$response = curl_exec($ch);
 		curl_close($ch);
 		
-		dd($response);
+		//dd($response);
 		return json_decode($response, true);
 	}
 
