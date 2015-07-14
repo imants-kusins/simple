@@ -17,7 +17,7 @@ class MainController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index(CampaignData $data)
 	{
 
 		return view('public.pages.login');

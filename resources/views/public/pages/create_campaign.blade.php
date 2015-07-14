@@ -2,7 +2,9 @@
 
 @section('content')
 
-	<div class="container">
+	<!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
 		
 		<div class="row col-md-12">
 				
@@ -10,7 +12,9 @@
 
 				<h2 class="pull-left">Create New Campaign</h2>
 
-				@include('public.partials.menuButtons')
+				<div class="top-btn-container pull-right">
+					@include('public.partials.logoutBtn')
+				</div>
 
 		</div>
 
@@ -114,6 +118,8 @@
 
 		</form>
 
+
+	</div>
 
 	</div>
 

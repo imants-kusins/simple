@@ -9,7 +9,6 @@
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid">
-                
 
 		<div class="row">
 			<div class="col-md-12">
@@ -18,7 +17,11 @@
 
 					<h2 class="pull-left">Campaign Title</h2>
 
-					@include('public.partials.menuButtons')
+					<div class="top-btn-container pull-right">
+						<a class="btn btn-sm btn-primary" href="{{ url() }}/create"><i class="glyphicon glyphicon-plus"></i> Add Campaign</a>
+						@include('public.partials.logoutBtn')
+					</div>
+					
 
 			</div>
 		</div>

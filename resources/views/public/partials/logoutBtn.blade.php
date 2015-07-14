@@ -1,0 +1,1 @@
+<a class="btn btn-sm btn-danger" href="{{ url('/auth/logout') }}"><i class="glyphicon glyphicon-log-out"></i> Logout</a>
