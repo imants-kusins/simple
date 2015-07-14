@@ -24,9 +24,10 @@ class CampaignData
 		$returnMessages = [];
 
 		$inboxData = $this->getInbox();
+		//dd($inboxData);
 		foreach ($inboxData["messages"] as $k => &$message) {
 
-			$message["message"] = 'TIMES imants@eskimo.uk.com 34';
+			//$message["message"] = 'TIMES imants@eskimo.uk.com 34';
 
 			$returnMessages[$message["id"]]["entry_time"] = date('H:i', strtotime($message["date"]));
 			$returnMessages[$message["id"]]["entry_date"] = date('d/m/Y', strtotime($message["date"]));
@@ -61,7 +62,7 @@ class CampaignData
 		return false;
 	}
 
-	protected function findKeywords($message, $keywords = ['TIMES'])
+	protected function findKeywords($message, $keywords = ['Times'])
 	{
 		foreach ($keywords as $keyword) {
 			if ( ! str_contains($message, $keyword) ) {
