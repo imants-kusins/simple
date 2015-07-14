@@ -54,11 +54,9 @@ class CampaignController extends Controller {
 	public function findWinners()
 	{
 		$params = \Request::all();
-		//dd($params);
+
 		$campaign = CampaignModel::findOrFail($params["campaign_id"])->toArray();
 
-		
-		// $params["number_of_runs"]
 		$this->campaignData = $this->campaign->findWinners($params["number_of_runs"]);
 		return view('public.pages.single_campaign')->with([
 			'messages' 	=> $this->campaignData,
@@ -102,12 +100,15 @@ class CampaignController extends Controller {
 	    ];
 
 	    $list = $this->campaign->getCampaignMessages($campaignId);
+
 	    if ($winnerFilter > 0) {
 	    	$list = $this->campaign->findWinners($winnerFilter);
 	    }
 
+	    dd($this->campaign->findWinners($winnerFilter));
+
 	    array_unshift($list, array_keys($list[0]));
-	   $callback = function() use ($list) 
+	   	$callback = function() use ($list) 
 	    {
 	        $FH = fopen('php://output', 'w');
 	        foreach ($list as $row) { 

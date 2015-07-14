@@ -55,12 +55,13 @@ class CampaignData
 	}
 
 
-	public function findWinners($winningRuns = 123)
+	public function findWinners($winningRuns)
 	{
 
 		$returnMessages = [];
 
 		$messages = $this->getCampaignMessages();
+		
 		$cc = -1;
 		foreach ($messages as $k => $v) {
 			if ($v["number_of_runs"] == $winningRuns) {
