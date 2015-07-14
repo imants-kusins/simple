@@ -15,7 +15,7 @@
 					
 					<!-- top bit -->
 
-					<h2 class="pull-left">Campaign Title</h2>
+					<h2 class="pull-left">{{ $campaign["campaign_name"] }}</h2>
 
 					<div class="top-btn-container pull-right">
 						<a class="btn btn-sm btn-primary" href="{{ url() }}/create"><i class="glyphicon glyphicon-plus"></i> Add Campaign</a>
@@ -31,9 +31,15 @@
 		
 			<div class="row col-md-8">
 				<div class="campaign-info-container">
-					<p><strong>SMS Number:</strong> 6676</p>
-					<p><strong>Campaign Time From:</strong> 10:00 - 12:00 07/07/2015</p>
-					<p><strong>Duplicates Accepted?:</strong> No</p>
+					<p><strong>SMS Number:</strong> {{ $campaign["campaign_phone_number"] }}</p>
+					<p><strong>Campaign Time From:</strong> {{ date('d/m/Y H:i' ,strtotime($campaign["campaign_start_date"])) }} - {{ date('d/m/Y H:i' ,strtotime($campaign["campaign_end_date"])) }}</p>
+					<p><strong>Duplicates Accepted?:</strong> 
+					@if ($campaign["duplicate"] == 0)
+						No
+					@else
+						Yes
+					@endif
+					</p>
 				</div>
 			</div>
 

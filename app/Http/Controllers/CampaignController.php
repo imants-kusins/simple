@@ -41,7 +41,8 @@ class CampaignController extends Controller {
 		$campaign = CampaignModel::findOrFail($id)->toArray();
 		
 		return view('public.pages.single_campaign')->with([
-			'messages'	=> $this->campaign->getCampaignMessages($campaign["campaign_inbox_id"])
+			'messages'	=> $this->campaign->getCampaignMessages($campaign["campaign_inbox_id"]),
+			'campaign'	=> $campaign
 		]);
 	}
 
