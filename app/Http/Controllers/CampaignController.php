@@ -76,8 +76,8 @@ class CampaignController extends Controller {
 	{
 		// TODO create Campaign model and 
 		CampaignModel::create(\Request::all());
-		
-		return redirect()->back();
+
+		return redirect('campaigns');
 	}
 
 	
