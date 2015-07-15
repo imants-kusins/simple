@@ -29,13 +29,15 @@ class CampaignData
 
 		$inboxData = $this->getInbox();
 
+		//dd($inboxData);
+
 		if (!empty($inboxData["messages"]))
 		{
 			$cc = -1;
 			foreach ($inboxData["messages"] as $k => &$message) {
 				$cc++;
 
-				$message["message"] = 'TIMES imants@eskimo.uk.com 34';
+				//$message["message"] = 'times imants@eskimo.uk.com 34';
 
 				if ($this->checkDuplicate($message["number"]) === false) {
 
@@ -65,7 +67,7 @@ class CampaignData
 	{
 
 		$returnMessages = [];
-
+		
 		$messages = $this->getCampaignMessages($campaignInboxId);
 
 		$cc = -1;
@@ -130,7 +132,7 @@ class CampaignData
 	 *
 	 * @return string
 	 */
-	protected function findKeywords($message, $keywords = ['Times'], $position = 1)
+	protected function findKeywords($message, $keywords = ['TIMES'], $position = 1)
 	{
 		$position -= 1;
 		$messageArr = explode(' ', $message);

@@ -49,6 +49,7 @@
 				      <form method="POST" action="{{ url() }}/find-winners">
 				      <input type="hidden" name="_token" value="{{ csrf_token() }}">
 				      <input type="hidden" name="campaign_id" value="{{ $campaign['id'] }}">
+				      <input type="hidden" name="campaign_inbox_id" value="{{ $campaign['campaign_inbox_id'] }}">
 				      <input type="text" class="form-control search-field" name="number_of_runs" id="number_of_runs" placeholder="Number of Runs..." value="@if (isset($search_value)) {{ $search_value }} @endif">
 				    	<button type="submit" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-search"></i></button>
 				      </form>
@@ -104,7 +105,7 @@
 						@endforeach
 					@else
 						<tr>
-							<td>No messages added.</td>
+							<td>No messages found.</td>
 						</tr>
 					@endif
 					</table>
