@@ -64,43 +64,49 @@
 				<div class="col-md-12">
 
 					<table class="table table-responsive campaign-table">
-					<tr>
-						<th>Entry Time</th>
-						<th>Entry Date</th>
-						<th>Phone Number</th>
-						<th>Key Word</th>
-						<th>Email Address</th>
-						<th>Number of Runs</th>
-					</tr>
-
-					@foreach($messages as $key => $message)
+					@if (!empty($messages))
 						<tr>
-							<td>{{ $message["entry_time"] }}</td>
-							<td>{{ $message["entry_date"] }}</td>
-							<td>{{ $message["phone_number"] }}</td>
-							<td>
-								@if ($message["keyword"] !== false)
-									{{ $message["keyword"] }}
-								@else
-									-
-								@endif
-							</td>
-							<td>
-								@if ($message["email_address"] !== false)
-									{{ $message["email_address"] }}
-								@else
-									not found
-								@endif
-							</td>
-							<td>
-							@if ($message["number_of_runs"] !== false)
-									{{ $message["number_of_runs"] }}
-								@else
-									not found
-								@endif
-							</td>
+							<th>Entry Time</th>
+							<th>Entry Date</th>
+							<th>Phone Number</th>
+							<th>Key Word</th>
+							<th>Email Address</th>
+							<th>Number of Runs</th>
 						</tr>
-					@endforeach
+
+						@foreach($messages as $key => $message)
+							<tr>
+								<td>{{ $message["entry_time"] }}</td>
+								<td>{{ $message["entry_date"] }}</td>
+								<td>{{ $message["phone_number"] }}</td>
+								<td>
+									@if ($message["keyword"] !== false)
+										{{ $message["keyword"] }}
+									@else
+										-
+									@endif
+								</td>
+								<td>
+									@if ($message["email_address"] !== false)
+										{{ $message["email_address"] }}
+									@else
+										not found
+									@endif
+								</td>
+								<td>
+								@if ($message["number_of_runs"] !== false)
+										{{ $message["number_of_runs"] }}
+									@else
+										not found
+									@endif
+								</td>
+							</tr>
+						@endforeach
+					@else
+						<tr>
+							<td>No messages added.</td>
+						</tr>
+					@endif
 					</table>
 
 					<p class="pull-right"><a href="{{ url() }}/download-csv/{{ $campaign['campaign_inbox_id']  }}@if (isset($search_value))/{{ $search_value }} @endif" class="btn btn-sm btn-success"><i class="glyphicon glyphicon-export"></i> Export to .csv</a></p>

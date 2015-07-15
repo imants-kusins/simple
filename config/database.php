@@ -44,6 +44,9 @@ return [
 	|
 	*/
 
+	// eskimo_thetimes 	dbname
+	// rndso2ngpsnfls	password
+
 	'connections' => [
 
 		'sqlite' => [

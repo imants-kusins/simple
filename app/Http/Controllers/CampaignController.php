@@ -29,7 +29,6 @@ class CampaignController extends Controller {
 	 */
 	public function index()
 	{
-
 		return view('public.pages.all_campaigns')->with('campaigns', CampaignModel::all()->toArray());
 	}
 
@@ -51,6 +50,11 @@ class CampaignController extends Controller {
 	}
 
 
+	/**
+	 * Show the winners in a campaign.
+	 *
+	 * @return Response
+	 */
 	public function findWinners()
 	{
 		$params = \Request::all();
@@ -65,8 +69,9 @@ class CampaignController extends Controller {
 		]);
 	}
 
+
 	/**
-	 * Show the form for creating a new resource.
+	 * Show the form to create a new Campaign.
 	 *
 	 * @return Response
 	 */
@@ -75,8 +80,9 @@ class CampaignController extends Controller {
 		return view('public.pages.create_campaign');
 	}
 
+
 	/**
-	 * Store a newly created resource in storage.
+	 * Store a new campaign.
 	 *
 	 * @return Response
 	 */
@@ -89,6 +95,11 @@ class CampaignController extends Controller {
 	}
 
 	
+	/**
+	 * Export the data to a .csv file.
+	 *
+	 * @return mixed
+	 */
 	public function downloadCsv($campaignId, $winnerFilter = false)
 	{
 	    $headers = [
@@ -102,7 +113,7 @@ class CampaignController extends Controller {
 	    $list = $this->campaign->getCampaignMessages($campaignId);
 
 	    if ($winnerFilter > 0) {
-	    	$list = $this->campaign->findWinners($winnerFilter);
+	    	$list = $this->campaign->findWinners($winnerFilter, $campaignId);
 	    }
 
 	    dd($this->campaign->findWinners($winnerFilter));

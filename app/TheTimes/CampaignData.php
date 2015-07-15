@@ -14,14 +14,12 @@ class CampaignData
 
 	protected $phoneNumbers = [];
 
-	public function __construct()
-	{
-		
-	}
 
-
-
-
+	/**
+	 * Returns all messages in the specified inbox.
+	 *
+	 * @return mixed
+	 */
 	public function getCampaignMessages($inboxId = '760434')
 	{
 
@@ -31,23 +29,26 @@ class CampaignData
 
 		$inboxData = $this->getInbox();
 
-		$cc = -1;
-		foreach ($inboxData["messages"] as $k => &$message) {
-			$cc++;
+		if (!empty($inboxData["messages"]))
+		{
+			$cc = -1;
+			foreach ($inboxData["messages"] as $k => &$message) {
+				$cc++;
 
-			//$message["message"] = 'TIMES imants@eskimo.uk.com 34';
+				$message["message"] = 'TIMES imants@eskimo.uk.com 34';
 
-			if ($this->checkDuplicate($message["number"]) === false) {
+				if ($this->checkDuplicate($message["number"]) === false) {
 
-				$this->phoneNumbers[] = $message["number"];
+					$this->phoneNumbers[] = $message["number"];
 
-				$returnMessages[$cc]["entry_time"] = date('H:i', strtotime($message["date"]));
-				$returnMessages[$cc]["entry_date"] = date('d/m/Y', strtotime($message["date"]));
-				$returnMessages[$cc]["phone_number"] = $message["number"];
-				$returnMessages[$cc]["keyword"] = $this->findKeywords($message["message"]);
-				$returnMessages[$cc]["email_address"] = $this->findEmailAddress($message["message"]);
-				$returnMessages[$cc]["number_of_runs"] = $this->findNumberOfRuns($message["message"], 3);
-				// $returnMessages[$message["id"]]["isValid"] = $this->isMessageValid($message["message"]);
+					$returnMessages[$cc]["entry_time"] = date('H:i', strtotime($message["date"]));
+					$returnMessages[$cc]["entry_date"] = date('d/m/Y', strtotime($message["date"]));
+					$returnMessages[$cc]["phone_number"] = $message["number"];
+					$returnMessages[$cc]["keyword"] = $this->findKeywords($message["message"]);
+					$returnMessages[$cc]["email_address"] = $this->findEmailAddress($message["message"]);
+					$returnMessages[$cc]["number_of_runs"] = $this->findNumberOfRuns($message["message"], 3);
+					// $returnMessages[$message["id"]]["isValid"] = $this->isMessageValid($message["message"]);
+				}
 			}
 		}
 
@@ -55,13 +56,18 @@ class CampaignData
 	}
 
 
-	public function findWinners($winningRuns)
+	/**
+	 * Finds the winners in a campaign.
+	 *
+	 * @return mixed
+	 */
+	public function findWinners($campaignInboxId, $winningRuns)
 	{
 
 		$returnMessages = [];
 
-		$messages = $this->getCampaignMessages();
-		
+		$messages = $this->getCampaignMessages($campaignInboxId);
+
 		$cc = -1;
 		foreach ($messages as $k => $v) {
 			if ($v["number_of_runs"] == $winningRuns) {
@@ -74,6 +80,11 @@ class CampaignData
 	}
 
 
+	/**
+	 * Checks for duplicate phone numbers.
+	 *
+	 * @return boolean
+	 */
 	protected function checkDuplicate($phoneNumber)
 	{
 		if (in_array($phoneNumber, $this->phoneNumbers)) return true;
@@ -81,6 +92,12 @@ class CampaignData
 		return false;
 	}
 
+
+	/**
+	 * Finds the number of runs in a message.
+	 *
+	 * @return string
+	 */
 	protected function findNumberOfRuns($message, $position)
 	{
 		$position -= 1;
@@ -91,6 +108,11 @@ class CampaignData
 	}
 
 
+	/**
+	 * Finds the email address in a message.
+	 *
+	 * @return string or boolean
+	 */
 	protected function findEmailAddress($message)
 	{
 		foreach (explode(' ', $message) as $word) {
@@ -102,6 +124,12 @@ class CampaignData
 		return false;
 	}
 
+
+	/**
+	 * Finds the keywords in a message..
+	 *
+	 * @return string
+	 */
 	protected function findKeywords($message, $keywords = ['Times'], $position = 1)
 	{
 		$position -= 1;
@@ -116,6 +144,12 @@ class CampaignData
 		return implode(', ', $keywords);
 	}
 
+
+	/**
+	 * Gets all the messages from specified inbox.
+	 *
+	 * @return request
+	 */
 	public function getInbox()
 	{
 		
@@ -142,17 +176,33 @@ class CampaignData
 	}
 
 
+	/**
+	 * Getter for the API username.
+	 *
+	 * @return string
+	 */
 	protected function getApiUsername()
 	{
 		return urlencode($this->_USERNAME);
 	}
 
 
+	/**
+	 * Getter for the API hash..
+	 *
+	 * @return string
+	 */
 	protected function getApiHash()
 	{
 		return urlencode($this->_API_HASH);
 	}
 
+
+	/**
+	 * Sends the request to the API.
+	 *
+	 * @return mixed
+	 */
 	private function sendRequest($data)
 	{
 		// Send the GET request with cURL
