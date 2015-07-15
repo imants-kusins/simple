@@ -117,7 +117,7 @@ class CampaignController extends Controller {
 	    	$list = $this->campaign->findWinners($campaignId, $winnerFilter);
 	    }
 
-	    dd($this->campaign->findWinners($campaignId, $winnerFilter));
+	    //dd($this->campaign->findWinners($campaignId, $winnerFilter));
 
 	    array_unshift($list, array_keys($list[0]));
 	   	$callback = function() use ($list) 

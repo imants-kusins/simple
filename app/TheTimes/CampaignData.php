@@ -29,7 +29,7 @@ class CampaignData
 
 		$inboxData = $this->getInbox();
 
-		//dd($inboxData);
+
 
 		if (!empty($inboxData["messages"]))
 		{
@@ -67,9 +67,9 @@ class CampaignData
 	{
 
 		$returnMessages = [];
-		
+		//dd($this->getCampaignMessages());
 		$messages = $this->getCampaignMessages($campaignInboxId);
-
+		//dd($messages);
 		$cc = -1;
 		foreach ($messages as $k => $v) {
 			if ($v["number_of_runs"] == $winningRuns) {
